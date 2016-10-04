@@ -1,0 +1,749 @@
+<?xml version="1.0" ?>
+<!--The above line tells applications reading the file that it is in XML format.-->
+<!--Text within tags like this is a comment in XML-->
+<spellcast>
+<!--The above line specifies the SpellCast section of the XML file so SpellCast knows where to look when it opens the file-->
+	<config
+		HideErrors="True" 
+		Debug="False"
+		ShowSpellInfo="False"
+	/>
+	<sets>
+		<!-- 
+			gearFlag options:
+				std (Standard TP)
+				acc (Accuracy set)
+				dmg (Medium set)
+				eva (Evasion Set)
+				dr  (Damage Reduction)
+				drk (Standard DRK)
+				mov (movement speed)
+				tow (town set)
+				
+				set with "/console /sc var set gearFlag [option]" in game.
+				
+		-->
+				<!--
+				<head></head>
+				<neck></neck>
+				<lear></lear>
+				<rear></rear>
+				<body></body>
+				<hands></hands>
+				<lring></lring>
+				<rring></rring>
+				<back></back>
+				<waist></waist>
+				<legs></legs>
+				<feet></feet>
+				
+				Sets:
+				Idle
+					Town
+					MovementSpeed
+				TPSets
+					TPStandard (default)
+					TPAcc
+					TPDamage
+					Throwing
+				TankingSets
+					Enmity
+					Evasion
+					DamageReduction
+					subDRK
+				Ninjutsu
+					StandardCast
+					MagicDamage
+					MagicSkill
+					CuringWaltz
+				WeaponSkills
+					Multihit
+					Singlehit
+					Magical
+				
+				
+				-->
+	<!--This is where you would define your SpellCast Equipment sets and groups-->
+		<group default="yes" name="std">	<!-- ################ IDLE SETS ################ -->
+			<set default="yes" name="Town">
+				<head>Ninja Hatsuburi +1</head>
+				<neck>Iga Erimaki</neck>
+				<lear>Brutal Earring</lear>
+				<rear>Light Earring</rear>
+				<body>Mextli Harness</body>
+				<hands>Koga Tekko +2</hands>
+				<lring>Rajas Ring</lring>
+				<rring>Epona's Ring</rring>
+				<back>Atheling Mantle</back>
+				<waist>Twilight Belt</waist>
+				<legs>Koga Hakama +2</legs>
+				<feet>Koga Kyahan +2</feet>
+			</set>
+			<set name="MovementSpeed">
+				<!--<head>Koga Hatsuburi +1</head>-->
+				<!--<neck>Iga Erimaki</neck>-->
+				<!--<lear>Brutal Earring</lear>-->
+				<!--<rear>Suppanomimi</rear>-->
+				<!--<body>Koga Chainmail</body>-->
+				<!--<hands>Koga Tekko +2</hands>-->
+				<!--<lring>Rajas Ring</lring>-->
+				<!--<rring>Epona's Ring</rring>-->
+				<!--<back>Resentment Cape</back>-->
+				<!--<waist>Twilight Belt</waist>-->
+				<!--<legs>Byakko's Haidate</legs>-->
+				<feet>Danzo Sune-ate</feet>
+			</set>
+		</group>
+		<group name="TPsets">	<!-- ################ TPING SETS ################ -->
+			<set name="TPStandard">
+				<head>Iga Zukin +2</head>
+				<neck>Iga Erimaki</neck>
+				<lear>Brutal Earring</lear>
+				<rear>Suppanomimi</rear>
+				<body>$bodyBuffer</body>
+				<hands>Koga Tekko +2</hands>
+				<lring>Rajas Ring</lring>
+				<rring>$ninRing</rring>
+				<back>Atheling Mantle</back>
+				<waist>Twilight Belt</waist>
+				<legs>Koga Hakama +2</legs>
+				<feet>Iga Kyahan +2</feet>
+			</set>
+			<set name="TPLowHP">
+				<head>Iga Zukin +2</head>
+				<neck>Iga Erimaki</neck>
+				<lear>Brutal Earring</lear>
+				<!--<rear></rear>-->
+				<body>Ninja Chainmail +1</body>
+				<hands>$handsBuffer</hands>
+				<lring>Rajas Ring</lring>
+				<rring>$ninRing</rring>
+				<back>Atheling Mantle</back>
+				<waist>Anguinus Belt</waist>
+				<legs>Koga Hakama +2</legs>
+				<feet>Iga Kyahan +2</feet>
+			</set>
+			<set name="TPAcc" BaseSet="TPStandard">
+				<head>Optical Hat</head>
+				<neck>Iga Erimaki</neck>
+				<!--<lear></lear>-->
+				<!--<rear></rear>-->
+				<body>Loki's Kaftan</body>
+				<hands>Iga Tekko +2</hands>
+				<!--<lring></lring>-->
+				<!--<rring></rring>-->
+				<!--<back></back>-->
+				<waist>Anguinus Belt</waist>
+				<!--<legs></legs>-->
+				<!--<feet></feet>-->
+			</set>
+			<set name="TPDamage" BaseSet="TPStandard">
+				<head>Iga Zukin +2</head>
+				<neck>Rancor Collar</neck>
+				<lear>Brutal Earring</lear>
+				<rear>Suppanomimi</rear>
+				<body>$bodyBuffer</body>
+				<hands>Koga Tekko +2</hands>
+				<lring>Rajas Ring</lring>
+				<rring>Epona's Ring</rring>
+				<back>Atheling Mantle</back>
+				<waist>Twilight Belt</waist>
+				<legs>Koga Hakama +2</legs>
+				<feet>Iga Kyahan +2</feet>
+			</set>
+			<set name="Throwing">
+				<head>Optical Hat</head>
+				<!--<neck></neck>-->
+				<lear>Waetoto's Earring</lear>
+				<rear>Suppanomimi</rear>
+				<body>War shinobi gi</body>
+				<hands>Koga Tekko +2</hands>
+				<lring>Rajas Ring</lring>
+				<rring>Flame Ring</rring>
+				<back>Atheling Mantle</back>
+				<waist>Hurling Belt</waist>
+				<legs>Byakko's Haidate</legs>
+				<feet>Ninja Kyahan</feet>
+				<range>Ungur Boomerang</range>
+				<ammo></ammo>
+			</set>
+		</group>
+		<group name="Ninjutsu"> <!-- ################ CASTING SETS ################ -->
+			<set name="StandardCast">
+				<head>Iga Zukin +2</head>
+				<neck>Iga Erimaki</neck>
+				<lear>Shinobi Earring</lear>
+				<rear>Loquac. Earring</rear>
+				<body>Iga Ningi +2</body>
+				<hands>Koga Tekko +2</hands>
+				<!--<lring>Rajas Ring</lring>-->
+				<rring>$ninRing</rring>
+				<back>Boxer's Mantle</back>
+				<waist>Twilight Belt</waist>
+				<legs>Iga Hakama +2</legs>
+				<feet>Iga Kyahan +2</feet>
+			</set>
+			<set name="MagicDamage" BaseSet="StandardCast">
+				<head>Koga Hatsuburi</head>
+				<neck>Ninjutsu Torque</neck>
+				<lear>Stealth Earring</lear>
+				<rear>Loq. Earring</rear>
+				<!--<body></body>-->
+				<hands>Iga Tekko +2</hands>
+				<!--<lring>Rajas Ring</lring>-->
+				<!--<rring>Epona's Ring</rring>-->
+				<back>Astute Cape</back>
+				<waist>Koga Sarashi</waist>
+				<!--<legs></legs>-->
+				<feet>Koga Kyahan</feet>
+			</set>
+			<set name="MagicSkill" BaseSet="StandardCast">
+				<head>Ninja Hatsuburi</head>
+				<neck>Ninjutsu Torque</neck>
+				<lear>Stealth Earring</lear>
+				<rear>Ninjutsu Earring</rear>
+				<!--<body></body>-->
+				<hands>Iga Tekko +2</hands>
+				<!--<lring>Rajas Ring</lring>-->
+				<!--<rring>Epona's Ring</rring>-->
+				<back>Astute Cape</back>
+				<waist>Koga Sarashi</waist>
+				<!--<legs></legs>-->
+				<feet>Koga Kyahan</feet>
+			</set>
+			<set name="CuringWaltz" BaseSet="Evasion" BaseGroup="TankingSets">
+				<head>Genbu's Kabuto</head>
+				<!--<neck></neck>-->
+				<!--<lear></lear>-->
+				<rear>Waetoto's Earring</rear>
+				<body>Kirin's Osode</body>
+				<hands>Ample Gloves</hands>
+				<!--<lring></lring>-->
+				<rring>Angel's Ring</rring>
+				<!--<back></back>-->
+				<!--<waist>Anguinus Belt</waist>-->
+				<!--<legs></legs>-->
+				<feet>Koga Kyahan</feet>
+			</set>
+		</group>
+		<group name="TankingSets">	<!-- ################ TANKING SETS ################ -->
+			<set name="Enmity" BaseSet="StandardCast" BaseGroup="Ninjutsu">
+				<head>Arhat's Jinpachi</head>
+				<neck>Harmonia's Torque</neck>
+				<lear>Eris' Earring</lear>
+				<rear>Eris' Earring</rear>
+				<body>Arhat's Gi</body>
+				<!--<hands></hands>-->
+				<!--<lring></lring>-->
+				<!--<rring></rring>-->
+				<back>Resentment Cape</back>
+				<!--<waist>Anguinus Belt</waist>-->
+				<!--<legs></legs>-->
+				<feet>Koga Kyahan +2</feet>
+			</set>
+			<set name="Evasion" BaseSet="Enmity">
+				<head>Ninja Hatsuburi +1</head>
+				<neck>Iga Erimaki</neck>
+				<lear>Ethereal Earring</lear>
+				<rear>Suppanomimi</rear>
+				<body>Scorpion Harness</body>
+				<hands>Iga Tekko +2</hands>
+				<!--<lring></lring>-->
+				<!--<rring></rring>-->
+				<back>Boxer's Mantle</back>
+				<waist>Sveltesse Gouriz</waist>
+				<legs>Koga Hakama +2</legs>
+				<feet>Baillarines</feet>				
+			</set>
+			<set name="DamageReduction" BaseSet="Enmity">
+				<head>Arhat's Jinpachi</head>
+				<neck>Twilight Torque</neck>
+				<lear>Ethereal Earring</lear>
+				<rear>Suppanomimi</rear>
+				<body>Arhat's Gi</body>
+				<hands>Iga Tekko +2</hands>
+				<lring>Dark Ring</lring>
+				<rring>Jelly Ring</rring>
+				<!--<back></back>-->
+				<!--<waist>Anguinus Belt</waist>-->
+				<!--<legs></legs>-->
+				<feet>Koga Kyahan +2</feet>
+			</set>
+			<set name="subDRK" BaseSet="DamageReduction">
+				<main>Earth Staff</main>
+				<head>Arhat's Jinpachi</head>
+				<neck>Harmonia's Torque</neck>
+				<!--<lear></lear>-->
+				<rear>Ethereal Earring</rear>
+				<body>Arhat's Gi</body>
+				<!--<hands></hands>-->
+				<!--<lring>$bqRing</lring>-->
+				<rring>$ninRing</rring>
+				<back>Resentment Cape</back>
+				<waist>Anguinus Belt</waist>
+				<!--<legs></legs>-->
+				<feet>Koga Kyahan</feet>
+			</set>
+			<set name="subDRKlowHP" BaseSet="DamageReduction">
+				<main>Earth Staff</main>
+				<head>Arhat's Jinpachi</head>
+				<neck>Harmonia's Torque</neck>
+				<lear>Shinobi Earring</lear>
+				<rear>Ethereal Earring</rear>
+				<body>Arhat's Gi</body>
+				<!--<hands></hands>-->
+				<!--<lring></lring>-->
+				<rring>$ninRing</rring>
+				<back>Resentment Cape</back>
+				<waist>Anguinus Belt</waist>
+				<!--<legs></legs>-->
+				<feet>Koga Kyahan</feet>
+			</set>
+		</group>
+		<group name="WeaponSkills"> <!-- ################ WEAPON SKILL SETS ################ -->
+			<set name="AbyMultihit">
+				<head>Aias Bonnet</head>
+				<neck>Breeze Gorget</neck>
+				<lear>Brutal Earring</lear>
+				<rear>Waetoto's Earring</rear>
+				<body>Loki's Kaftan</body>
+				<hands>Koga Tekko +2</hands>
+				<lring>Rajas Ring</lring>
+				<rring>Epona's Ring</rring>
+				<back>Atheling Mantle</back>
+				<waist>Anguinus Belt</waist>
+				<legs>Byakko's Haidate</legs>
+				<feet>$feetBuffer</feet>
+			</set>
+			<set name="AbySinglehit">
+				<head>Aias Bonnet</head>
+				<neck>Breeze Gorget</neck>
+				<lear>Brutal Earring</lear>
+				<rear>Waetoto's Earring</rear>
+				<body>Loki's Kaftan</body>
+				<hands>Koga Tekko +2</hands>
+				<lring>Rajas Ring</lring>
+				<rring>Epona's Ring</rring>
+				<back>Atheling Mantle</back>
+				<waist>Anguinus Belt</waist>
+				<legs>Byakko's Haidate</legs>
+				<feet>$feetBuffer</feet>
+			</set>
+			<set name="DamageBladeHi">
+				<head>Ocelomeh Headpiece</head>
+				<neck>Iga Erimaki</neck>
+				<lear>Brutal Earring</lear>
+				<rear>Waetoto's Earring</rear>
+				<body>Loki's Kaftan</body>
+				<hands>Seiryu's Kote</hands>
+				<lring>Stormsoul Ring</lring>
+				<rring>Epona's Ring</rring>
+				<back>Atheling Mantle</back>
+				<waist>Anguinus Belt</waist>
+				<legs>Ambusher's Hose</legs>
+				<feet>Koga Kyahan +2</feet>
+			</set>
+				<set name="CritBladeHi">
+				<head>Ocelomeh Headpiece</head>
+				<neck>Rancor Collar</neck>
+				<lear>Brutal Earring</lear>
+				<rear>Light Earring</rear>
+				<body>Iga Ningi +2</body>
+				<hands>Iga Tekko +2</hands>
+				<lring>Stormsoul Ring</lring>
+				<rring>Epona's Ring</rring>
+				<back>Atheling Mantle</back>
+				<waist>Anguinus Belt</waist>
+				<legs>Ambusher's Hose</legs>
+				<feet>Koga Kyahan +2</feet>
+			</set>
+			<set name="AbyMagical">
+				<head>Ree's Headgear</head>
+				<neck>Uggalepih Pendant</neck>
+				<lear>Moldavite Earring</lear>
+				<!--<rear>Loquac. Earring</rear>-->
+				<body>Kirin's Osode</body>
+				<hands>Iga Tekko</hands>
+				<lring>Snow Ring</lring>
+				<rring>Snow Ring</rring>
+				<back>Resentment Cape</back>
+				<!--<waist>Koga Sarashi</waist>-->
+				<!--<legs></legs>-->
+				<!--<feet>Iga Kyahan +2</feet>-->
+			</set>
+			<set name="Multihit">
+				<head>Aias Bonnet</head>
+				<neck>Rancor Collar</neck>
+				<lear>Brutal Earring</lear>
+				<rear>Light Earring</rear>
+				<body>Iga Ningi +2</body>
+				<hands>Koga Tekko +2</hands>
+				<lring>Rajas Ring</lring>
+				<rring>Epona's Ring</rring>
+				<back>Atheling Mantle</back>
+				<waist>Anguinus Belt</waist>
+				<legs>Byakko's Haidate</legs>
+				<feet>$feetBuffer</feet>
+			</set>
+			<set name="SingleHit">
+				<head>Aias Bonnet</head>
+				<neck>Rancor Collar</neck>
+				<lear>Brutal Earring</lear>
+				<rear>Light Earring</rear>
+				<body>Iga Ningi +2</body>
+				<hands>Koga Tekko +2</hands>
+				<lring>Rajas Ring</lring>
+				<rring>Flame Ring</rring>
+				<back>Atheling Mantle</back>
+				<waist>Anguinus Belt</waist>
+				<legs>Byakko's Haidate</legs>
+				<feet>$feetBuffer</feet>
+			</set>
+			<set name="Magical">
+				<head>Ree's Headgear</head>
+				<neck>Uggalepih Pendant</neck>
+				<lear>Moldavite Earring</lear>
+				<!--<rear>Loquac. Earring</rear>-->
+				<body>Kirin's Osode</body>
+				<hands>Iga Tekko +2</hands>
+				<lring>Snow Ring</lring>
+				<rring>Snow Ring</rring>
+				<!--<back>Resentment Cape</back>-->
+				<!--<waist>Koga Sarashi</waist>-->
+				<!--<legs></legs>-->
+				<!--<feet>Iga Kyahan +2</feet>-->
+			</set>
+			
+			
+		</group>
+	</sets>
+	
+	<variables>
+		<!--This is where you would define custom variables for SpellCast-->
+		<!-- 
+			gearFlag options:
+				std (Standard TP)
+				acc (Accuracy set)
+				dmg (Medium set)
+				eva (Evasion Set)
+				dr  (Damage Reduction)
+				drk (Standard DRK)
+				mov (movement speed)
+				tow (town set)
+				
+				set with "/console /sc var set gearFlag [option]" in game.
+				
+		-->
+		<var name="gearFlag">std</var>	<!--put "/console sc var set gearFlag [flagName]" in your macros, perform an ability to auto equip them.-->
+		<var name="bToggler">1</var>	<!--In the event someone else is using your mextli, set to 0 so you only have one gimp.-->
+						<!--Initially set to 1 so that it is equipped.-->
+		<!--do not touch these directly in game, except to change gear names in the script if need be-->
+		<var name="toggleBody">0</var>
+		<var name="bodyBuffer">Ninja Chainmail +1</var>	
+		<var name="handsBuffer">Koga Tekko +2</var>
+		<var name="feetBuffer">Iga Kyahan +2</var>
+		
+		<var name="bodyNorm">Iga Ningi +2</var>
+		<var name="bodyAby">Ninja Chainmail +1</var>
+		<var name="bodyParty">Mextli Harness</var>
+		
+		<var name="handsNight">Koga Tekko +2</var>
+		<var name="handsDayHaste">Koga Tekko +2</var>
+		<var name="handsDayWS">Koga Tekko +2</var>
+		
+		<var name="feetNightWS">Iga Kyahan +2</var>
+		<var name="feetDayWS">Iga Kyahan +2</var>
+		
+		<var name="ninRing">Epona's Ring</var>
+		<var name="highHPring">Epona's Ring</var>
+		<var name="lowHPring">Epona's Ring</var>
+		
+		<var name="ninEar">Loq. Earring</var>
+		<var name="highHPear">Loq. Earring</var>
+		<var name="lowHPear">Shinobi Earring</var>
+	</variables>
+	
+	<rules>
+		<if advanced='"$bToggler"=="1"'> <!--toggle mextli on or off before deciding whether to equip it. set before anything because towngear got confusing-->
+			<action type="var" cmd="set bToggler 0"/>
+			<if advanced='"$toggleBody"=="0"'>
+				<action type="var" cmd="set toggleBody 1"/>
+				<command>input /echo Mextli Enabled.</command>
+			</if>
+			<else>
+				<action type="var" cmd="set toggleBody 0"/>
+				<command>input /echo Mextli Disabled.</command>
+			</else>
+		</if>
+		<if area="Port*|Bastok*|Windurst*|San d*|Rabao|Norg|Aht*|Al Zhabi|Tavnazian*|Nashmau|Ru'Lude*">
+			<action
+				type="Equip"
+				when="aftercast"
+				set="town"
+				setGroup="std" />
+		</if>
+		<else>
+			<!-- ################ WEAPONSKILL RULES ################ -->
+			<if type="WeaponSkill">
+				<if area="Abyssea*">
+					<if mode="OR" spell="*Jin|*Ku|*Retsu|Evisceration">
+						<action 
+							type="Equip"
+							when="precast"
+							set="AbyMultihit"
+							setGroup="WeaponSkills" />
+					</if>
+					<elseif mode="OR" spell="*Ten|*Kamu|*Rin">
+						<action
+							type="Equip"
+							when="precast"
+							set="AbySinglehit"
+							setGroup="WeaponSkills" />
+					</elseif>
+					<elseif mode="OR" spell="*Teki|*To|*Ei|*Yu|Aeolian Edge|Cyclone">
+						<action
+							type="Equip"
+							when="precast"
+							set="AbyMagical"
+							setGroup="WeaponSkills" />
+					</elseif>
+					<elseif mode="OR" spell="*Hi">
+						<action
+							type="Equip"
+							when="precast"
+							set="DamageBladeHi"
+							setGroup="WeaponSkills" />
+					</elseif>
+				</if>
+				<else>
+					<if mode="OR" spell="*Jin|*Ku|*Retsu|Evisceration">
+						<action 
+							type="Equip"
+							when="precast"
+							set="Multihit"
+							setGroup="WeaponSkills" />
+					</if>
+					<elseif mode="OR" spell="*Ten|*Kamu|*Rin">
+						<action
+							type="Equip"
+							when="precast"
+							set="Singlehit"
+							setGroup="WeaponSkills" />
+					</elseif>
+					<elseif mode="OR" spell="*Teki|*To|*Ei|*Yu|Aeolian Edge|Cyclone">
+						<action
+							type="Equip"
+							when="precast"
+							set="Magical"
+							setGroup="WeaponSkills" />
+					</elseif>
+					<elseif mode="OR" spell="*Hi">
+						<action
+							type="Equip"
+							when="precast"
+							set="CritBladeHi"
+							setGroup="WeaponSkills" />
+					</elseif>
+				</else>
+			</if>
+			<!-- ################ NINJUTSU RULES ################ -->
+			<elseif skill="Ninjutsu">
+				<if spell="Utsusemi*|Migawari*">
+					<if mode="OR" TimeLT="6.00" TimeGT="17.59">
+						<action 
+							type="var" 
+							cmd="set handsBuffer $handsNight" />
+					</if>
+					<else>
+						<action 
+							type="var" 
+							cmd="set handsBuffer $handsDayHaste" />
+					</else>
+					<action 
+						type="Equip" 
+						when="precast" 
+						set="StandardCast" 
+						setGroup="Ninjutsu" />
+				</if>
+				<if mode="OR" spell="Kurayami*|Hojo*|Jubaku*|Yurin*|Myoshu*|Aisha*|Kakka*">
+					<action 
+						type="Equip" 
+						when="precast" 
+						set="MagicSkill"
+						setGroup="Ninjutsu"/>
+				</if>
+				<if mode="OR" spell="Katon*|Hyoton*|Huton*|Doton*|Raiton*|Suiton*">
+					<action 
+						type="Equip" 
+						when="precast" 
+						set="MagicDamage"
+						setGroup="Ninjutsu"/>
+				</if>
+			</elseif>
+			
+			<!-- ################ BLACK MAGIC RULES ################ -->
+			
+			<elseif skill="BlackMagic">
+				<if mode="OR" spell="Sleep|Bind|Stun">
+					<action 
+						type="Equip" 
+						when="precast" 
+						set="Enmity" 
+						setGroup="TankingSets" />
+				</if>
+			</elseif>
+			
+			<!-- ################ JA RULES ################ -->
+			
+			<elseif type="JobAbility">
+				<if mode="OR" spell="Provoke|Last Resort|Souleater">
+					<action
+						type="Equip"
+						when="precast"
+						set="Enmity"
+						setGroup="TankingSets" />
+				</if>
+				<if mode="OR" spell="Defender">
+					<action
+						type="Equip"
+						set="DamageReduction"
+						setGroup="TankingSets" />
+				</if>
+				<if mode="OR" spell="Charm|Curing Waltz*">
+					<action 
+						type="Equip"
+						when="precast"
+						set="CuringWaltz"
+						setGroup="Ninjutsu" />
+				</if>
+				<if mode="OR" spell="Futae">
+					<action 
+						type="Equip" 
+						when="precast" 
+						set="MagicDamage"
+						setGroup="Ninjutsu"/>
+				</if>
+			</elseif>
+			
+			<!-- ################ GEAR RULES ################ -->
+			
+			<if when="aftercast">
+				<if HPPLT="76" TPLT="100">
+					<action
+						type="var"
+						cmd="set ninRing $lowHPring" />
+					<if HPPLT="26">
+						<action
+							type="var"
+							cmd="set ninEar $lowHPear" />
+				</if>
+				</if>
+				<else>
+					<action
+						type="var"
+						cmd="set ninEar $highHPring" />
+					<action
+						type="var"
+						cmd="set ninEar $highHPear" />
+				</else>
+				<if mode="OR" TimeLT="6.00" TimeGT="17.59"> <!--outdated, used for haste hands.-->
+					<action 
+						type="var" 
+						cmd="set handsBuffer $handsNight" />
+				</if>
+				<else>
+					<action 
+						type="var" 
+						cmd="set handsBuffer $handsDayHaste" />
+				</else>
+				
+				<if area="Abyssea*">
+					<action
+						type="var"
+						cmd="set bodyBuffer $bodyAby" />
+				</if>
+				<else>					
+					<if mode="AND" advanced='"$toggleBody"="1"' partycountGT="4"> <!--If party is greater than this, equip mextli, otherwise use standard gear-->
+						<action
+							type="var"
+							cmd="set bodyBuffer $bodyParty" />
+					</if>
+					<else>
+						<action
+							type="var"
+							cmd="set bodyBuffer $bodyNorm" />
+					</else>
+				</else>
+					
+				<if advanced='"$gearFlag"=="std"'>
+					<if HPPLT="26">
+						<action 
+							type="Equip"
+							when="aftercast"
+							set="TPLowHP"
+							setGroup="TPSets" />
+					</if>
+					<else>
+						<action 
+							type="Equip"
+							when="aftercast"
+							set="TPStandard"
+							setGroup="TPSets" />
+					</else>
+				</if>			
+				<elseif advanced='"$gearFlag"=="acc"'>
+					<action
+						type="Equip"
+						when="aftercast"
+						set="TPAcc"
+						setGroup="TPSets" />
+				</elseif>
+				<elseif advanced='"$gearFlag"=="dmg"'>
+					<action 
+						type="Equip"
+						when="aftercast"
+						set="TPDamage"
+						setGroup="TPSets" />
+				</elseif>
+				<elseif advanced='"$gearFlag"=="eva"'>
+					<action 
+						type="Equip"
+						when="aftercast"
+						set="Evasion"
+						setGroup="TankingSets" />
+				</elseif>
+				<elseif advanced='"$gearFlag"=="dr"'>
+					<action 
+						type="Equip"
+						when="aftercast"
+						set="DamageReduction"
+						setGroup="TankingSets" />
+				</elseif>
+				<elseif advanced='"$gearFlag"=="drk"'>
+					<if HPPLT="26">
+						<action 
+							type="Equip"
+							when="aftercast"
+							set="subDRKlowHP"
+							setGroup="TankingSets" />
+					</if>
+					<else>
+						<action 
+							type="Equip"
+							when="aftercast"
+							set="subDRK"
+							setGroup="TankingSets" />
+					</else>
+				</elseif>
+				<elseif advanced='"$gearFlag"=="mov"'>
+					<action 
+						type="Equip"
+						when="aftercast"
+						set="MovementSpeed"
+						setGroup="std" />
+				</elseif>
+			</if>
+		</else>
+		<!--This is where you would define rules that tell SpellCast what to do and when-->
+	</rules>
+</spellcast>
